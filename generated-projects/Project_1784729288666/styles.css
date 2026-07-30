@@ -1,0 +1,31 @@
+
+
+footer .credit {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: #555;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+footer .author {
+  background: linear-gradient(135deg, #00d4aa, #00a3e0, #ff6b6b, #ffa500);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  animation: gradientShift 3s ease-in-out infinite, popIn 0.6s ease-out;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes popIn {
+  0% { opacity: 0; transform: scale(0.8); }
+  50% { transform: scale(1.1); }
+  100% { opacity: 1; transform: scale(1); }
+}

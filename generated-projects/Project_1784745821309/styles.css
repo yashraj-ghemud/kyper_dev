@@ -1,0 +1,94 @@
+
+
+footer {
+  margin-top: 16px;
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.credit {
+  font-size: 0.8rem;
+  color: #444;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.credit-name {
+  background: linear-gradient(135deg, #00d4aa, #00a3e0, #ff6b6b, #ffa500);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 4s ease infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.02); }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Canvas glow animation */
+main {
+  animation: borderGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes borderGlow {
+  0% { box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), inset 0 0 0 2px #2a2a4a; }
+  100% { box-shadow: 0 20px 60px rgba(0, 212, 170, 0.15), inset 0 0 0 2px #00d4aa; }
+}
+
+/* Title shimmer */
+h1 {
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Score counters pop */
+.stats span {
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.stats span:first-child:has(+ #score:target) {
+  animation: scorePop 0.3s ease;
+}
+
+@keyframes scorePop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); color: #00ffcc; }
+  100% { transform: scale(1); }
+}
+
+/* Floating particles background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: 
+    radial-gradient(2px 2px at 20% 30%, #00d4aa, transparent),
+    radial-gradient(2px 2px at 40% 70%, #00a3e0, transparent),
+    radial-gradient(2px 2px at 60% 20%, #ff6b6b, transparent),
+    radial-gradient(2px 2px at 80% 80%, #ffa500, transparent);
+  background-repeat: no-repeat;
+  background-size: 200% 200%;
+  animation: floatParticles 20s linear infinite;
+  pointer-events: none;
+  opacity: 0.15;
+  z-index: -1;
+}
+
+@keyframes floatParticles {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 200% 200%; }
+}
