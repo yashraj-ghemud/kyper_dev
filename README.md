@@ -162,16 +162,16 @@ git clone https://github.com/yashraj-ghemud/kyper_dev.git
 cd kyper_dev
 
 # Install dependencies
-bun install
+npm install
 
 # Install agent service dependencies
 cd mini-services/agent-service
-bun install
+npm install
 cd ../..
 
 # Setup database
-bun run db:push
-bun run db:generate
+npm run db:push
+npm run db:generate
 ```
 
 ### 🎯 **Start the Services**
@@ -193,10 +193,10 @@ chmod +x start.sh
 ```bash
 # Terminal 1: Agent Service
 cd mini-services/agent-service
-bun run dev
+npm run dev
 
 # Terminal 2: Frontend
-bun run dev
+npm run dev
 ```
 
 </td>
@@ -229,6 +229,39 @@ Try these examples:
 | `"Build a weather dashboard with 5-day forecast"` | ~60 seconds |
 
 </div>
+
+---
+
+## 🌍 **Deploy to Production**
+
+### 🚢 **Deploy on Render** (Recommended)
+
+Kyper Dev is production-ready for Render deployment!
+
+**Quick Deploy:**
+```bash
+# Push to GitHub
+git push origin main
+
+# Then follow our deployment guide
+```
+
+📖 **Complete Deployment Guides:**
+- [⚡ Quick Start Guide](./RENDER_QUICK_START.md) - Deploy in 5 minutes
+- [📚 Full Deployment Guide](./DEPLOYMENT.md) - Detailed instructions
+
+**What You Need:**
+- ✅ GitHub account (to host code)
+- ✅ Render account (free tier available)
+- ✅ OpenRouter API keys
+
+**Deployment includes:**
+- 🌐 Next.js Frontend (Web Service)
+- ⚙️ Socket.IO Backend (Background Worker)
+- 💾 SQLite Database (persistent storage)
+- 🔄 Auto-deploy on git push
+
+[📖 View Deployment Guide →](./DEPLOYMENT.md)
 
 ---
 

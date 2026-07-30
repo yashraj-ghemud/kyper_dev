@@ -36,15 +36,30 @@ next-env.d.ts
 # Database
 *.db
 *.db-journal
+/db/
 
 # IDE
 .vscode/
 .idea/
 
-# Generated projects (optional - uncomment if you want to exclude)
-# generated-projects/
+# Generated projects
+generated-projects/
+
+# Logs
+*.log
+dev.log
+server.log
 
 # Lock files (keep the one you use)
 # bun.lock
 # package-lock.json
 # yarn.lock
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*~

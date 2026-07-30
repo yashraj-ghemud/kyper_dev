@@ -1,0 +1,39 @@
+services:
+  # Main Next.js Web Service
+  - type: web
+    name: kyper-dev-frontend
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: npm install && npx prisma generate && npm run build
+    startCommand: npm run start:production
+    envVars:
+      - key: NODE_VERSION
+        value: 20.11.0
+      - key: DATABASE_URL
+        value: file:./db/custom.db
+      - key: NEXT_PUBLIC_AGENT_SERVICE_URL
+        value: https://kyper-dev-agent-service.onrender.com
+      - key: NODE_ENV
+        value: production
+    healthCheckPath: /
+    autoDeploy: true
+
+  # Socket.IO Agent Service (Background Worker)
+  - type: web
+    name: kyper-dev-agent-service
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: cd mini-services/agent-service && npm install && cd ../.. && npx prisma generate
+    startCommand: cd mini-services/agent-service && node index.js
+    envVars:
+      - key: NODE_VERSION
+        value: 20.11.0
+      - key: DATABASE_URL
+        value: file:../../db/custom.db
+      - key: PORT
+        value: 10000
+      - key: NODE_ENV
+        value: production
+    autoDeploy: true

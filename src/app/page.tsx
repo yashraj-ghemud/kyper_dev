@@ -85,7 +85,11 @@ export default function Home() {
 
   // ─── Socket.IO Connection ────────────────────────────────
   useEffect(() => {
-    const socketInstance = io('http://localhost:3003', {
+    const agentServiceUrl = process.env.NEXT_PUBLIC_AGENT_SERVICE_URL || 'http://localhost:3003'
+    console.log('🔌 Connecting to agent service:', agentServiceUrl)
+
+    const socketInstance = io(agentServiceUrl, {
+      path: '/socket.io',
       transports: ['websocket', 'polling'],
       forceNew: true,
       reconnection: true,

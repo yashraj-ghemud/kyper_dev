@@ -1,0 +1,10 @@
+# Files to ignore during Render deployment
+*.log
+dev.log
+server.log
+.DS_Store
+.vscode
+.idea
+*.swp
+*.swo
+*~
