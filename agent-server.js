@@ -22,8 +22,8 @@ let currentKeyIndex = 0;
 const agentTasks = new Map();
 let currentModel = 'nvidia/nemotron-3-ultra-550b-a55b:free';
 
-// Prisma
-const databaseUrl = process.env.DATABASE_URL || 'file:./db/custom.db';
+// Prisma setup with PostgreSQL
+const databaseUrl = process.env.DATABASE_URL || 'postgresql://localhost:5432/kyper_dev';
 const prisma = new PrismaClient({
     datasources: { db: { url: databaseUrl } }
 });
